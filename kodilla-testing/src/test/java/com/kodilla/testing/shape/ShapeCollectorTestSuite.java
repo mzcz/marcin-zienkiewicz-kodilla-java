@@ -27,12 +27,11 @@ public class ShapeCollectorTestSuite {
         public void testAddFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-
+            Shape shapeSquare = new Square(10);
             //When
-            shapeCollector.addFigure(new Square(10));
-
+            shapeCollector.addFigure(shapeSquare);
             //Then
-            Assert.assertEquals(1, shapeCollector.getFigure(0));
+            Assert.assertEquals(shapeSquare.getShapeName(), shapeCollector.getFigure(0));
         }
 
         @Test
@@ -50,13 +49,30 @@ public class ShapeCollectorTestSuite {
     public void testRemoveFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        shapeCollector.addFigure(new Triangle(1, 5));
+        Shape shapeTriangle = new Triangle(1, 5);
+        shapeCollector.addFigure(shapeTriangle);
 
         //When
-        boolean result = shapeCollector.removeFigure(new Triangle(1, 5));
-
+        boolean result = shapeCollector.removeFigure(shapeTriangle);
         //Then
         Assert.assertTrue(result);
-        Assert.assertEquals(0, shapeCollector.getFigure(0));
+        Assert.assertEquals(0, shapeCollector.getPostsQuantity());
     }
+    @Test
+    public void testShowFigures() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+
+        shapeCollector.addFigure(new Circle(3));
+        shapeCollector.addFigure(new Triangle(1, 5));
+        shapeCollector.addFigure(new Circle(3));
+        shapeCollector.addFigure(new Square(4));
+
+        //When
+        shapeCollector.showFigures();
+        //Then
+        Assert.assertEquals(2.5, shapeCollector.getField(1),0.0);
+    }
+
+
 }

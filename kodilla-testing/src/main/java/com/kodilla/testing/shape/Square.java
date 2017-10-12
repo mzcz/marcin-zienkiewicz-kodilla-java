@@ -10,11 +10,11 @@ public class Square implements Shape {
 
     @Override
     public String getShapeName() {
-        return null;
+        return getClass().getName();
     }
 
     @Override
     public double getField() {
-        return 0;
+        return a*a;
     }
 }
