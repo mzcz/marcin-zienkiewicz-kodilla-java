@@ -16,14 +16,14 @@ public class BookLibrary {
         List<Book> resultList = libraryDatabase
                 .listBooksWithCondition(titleFragment);
         if (resultList.size() > 20) return bookList;
-        bookList = resultList;
-        return bookList;
+        // to przypisanie jest niepotrzebne,
+        // bo poza metodą ta zmienna jest i tak niewidoczna,
+        // więc wystarczy: return resultList, zamiast przypisywac pod bookList.
+        //bookList = resultList;
+        return resultList;
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
-        List<Book> bookList = new ArrayList<>();
-        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
-        bookList = resultList;
-        return bookList;
+        return  libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 }
