@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class FileReader {
-    public void ReadFile(){
+    public void ReadFile() throws FileReaderException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("file/names.txt").getFile());
 
@@ -17,7 +17,8 @@ public class FileReader {
             fileLines.forEach(System.out::println);
         } catch (IOException e) {
             //e.printStackTrace();
-            System.out.println("Oh no! somethings went wrong!!!" + e);
+            //System.out.println("Oh no! somethings went wrong!!!" + e);
+            throw new FileReaderException();
         } finally {
 
             System.out.println("I am gonna by  always ...!!!");
