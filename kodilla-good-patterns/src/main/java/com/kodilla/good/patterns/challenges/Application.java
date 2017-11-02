@@ -8,6 +8,6 @@ public class Application {
         ProductOrderService productOrderService = new ProductOrderService(new MailService(), new AllegroService(),
                 new AllegroOrderRepository());
 
-        productOrderService.process(orderRequest);
+        productOrderService.processOrder(orderRequest);
     }
 }
