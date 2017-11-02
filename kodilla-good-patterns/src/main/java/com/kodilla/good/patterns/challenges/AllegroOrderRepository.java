@@ -8,4 +8,11 @@ public class AllegroOrderRepository implements OrderRepository {
         System.out.println(user + " saved in database at " + orderDate );
         return true;
     }
+
+    @Override
+    public boolean createOrderFromSuplier(User user, LocalDateTime orderDate, Suplier suplier) {
+        System.out.println(user + " ordered  product  from " + suplier + " saved in database at " + orderDate);
+        System.out.println("------------------------------------------------------------------------------------------");
+        return true;
+    }
 }
