@@ -8,4 +8,6 @@ public interface Temperatures {
     //second element of the map is a temperature in Celsius degrees
 
     HashMap<Integer, Double> getTemperatures();
+
+    int method(int number);
 }
