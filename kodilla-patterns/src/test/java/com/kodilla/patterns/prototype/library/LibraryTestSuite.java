@@ -31,11 +31,11 @@ public class LibraryTestSuite {
         }
 
         //making a deep copy of object library
-        Library cloneDeepLibrary = null;
+        Library clonedDeepLibrary = null;
 
         try {
-            cloneDeepLibrary = library.deepCopy();
-            cloneDeepLibrary.setName("Library 3");
+            clonedDeepLibrary = library.deepCopy();
+            clonedDeepLibrary.setName("Library 3");
         } catch (CloneNotSupportedException e) {
             System.out.println(e);
         }
@@ -45,12 +45,12 @@ public class LibraryTestSuite {
         //Then
         System.out.println(library);
         System.out.println(clonedlibrary);
-        System.out.println(cloneDeepLibrary);
+        System.out.println(clonedDeepLibrary);
         Assert.assertEquals(6, library.getBooks().size());
         Assert.assertEquals(6, clonedlibrary.getBooks().size());
-        Assert.assertEquals(5, cloneDeepLibrary.getBooks().size());
+        Assert.assertEquals(5, clonedDeepLibrary.getBooks().size());
 
         Assert.assertEquals(clonedlibrary.getBooks(), library.getBooks());
-        Assert.assertNotEquals(cloneDeepLibrary.getBooks(), library.getBooks());
+        Assert.assertNotEquals(clonedDeepLibrary.getBooks(), library.getBooks());
     }
 }
