@@ -4,7 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedQuery(//TO powinno byc napisane w innej klasie...
+        name = "Employee.retrieveEmployeeByLastName",
+        query = "FROM Employee WHERE lastname = UPPER(:LASTNAME)")
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
