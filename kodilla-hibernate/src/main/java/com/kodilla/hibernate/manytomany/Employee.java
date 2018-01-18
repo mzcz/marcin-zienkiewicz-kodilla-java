@@ -7,6 +7,12 @@ import java.util.List;
 @NamedQuery(//TO powinno byc napisane w innej klasie...
         name = "Employee.retrieveEmployeeByLastName",
         query = "FROM Employee WHERE lastname = UPPER(:LASTNAME)")
+
+@NamedNativeQuery(
+        name = "Employee.retrieveEmployeeByPartLastName",
+        query = "SELECT * FROM EMPLOYEES " +
+                "WHERE LASTNAME LIKE \"%\":LASTNAME \"%\"",
+        resultClass = Employee.class)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
