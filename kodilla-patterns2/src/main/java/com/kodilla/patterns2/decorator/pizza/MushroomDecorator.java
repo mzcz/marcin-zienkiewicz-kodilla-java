@@ -1,7 +1,4 @@
-package com.kodilla.patterns2.decorator;
-
-import com.kodilla.patterns2.decorator.pizza.AbstractPizzaOrderDecorator;
-import com.kodilla.patterns2.decorator.pizza.PizzaOrder;
+package com.kodilla.patterns2.decorator.pizza;
 
 import java.math.BigDecimal;
 
@@ -20,3 +17,4 @@ public class MushroomDecorator extends AbstractPizzaOrderDecorator {
         return super.getDescription() + " + pieczarki";
     }
 }
+
