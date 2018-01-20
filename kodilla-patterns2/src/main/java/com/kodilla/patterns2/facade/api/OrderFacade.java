@@ -7,15 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import com.kodilla.patterns2.facade.ShopService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @Service
 public class OrderFacade {
 
     @Autowired
     private ShopService shopService;
-    private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
 
-    public void processOrder(final OrderDto order, final Long userId)
+    public void processOrder(OrderDto order, Long userId)
         throws OrderProcessingException {
         boolean wasError = false;
         Long orderId = shopService.openOrder(userId);
