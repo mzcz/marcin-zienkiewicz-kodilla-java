@@ -36,9 +36,9 @@ public class StoredPostTestSuite {
     public void testUpdateBestsellers() throws SQLException{
         //Given
         DbManager dbManager = DbManager.getInstance();
-        String sqlUpdate = "UPDATE BOOKS SET BESTSELLER = false";
+        //String sqlUpdate = "UPDATE BOOKS SET BESTSELLER = false";
         Statement statement = dbManager.getConnection().createStatement();
-        statement.executeUpdate(sqlUpdate);
+        //statement.executeUpdate(sqlUpdate);
         //When
         String sqlProcedureCall = "call UpdateBestsellers()";
         statement.execute(sqlProcedureCall);
